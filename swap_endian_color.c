@@ -10,7 +10,7 @@
 
 union u_color
 {
-    int	color;
+    int color;
     char components[4];
 };
 
@@ -27,9 +27,10 @@ static int my_swap_char(char *a, char *b)
 int swap_endian_color(int color)
 {
     union u_color c;
-    
+
     c.color = color;
-    my_swap_char(c.components, c.components + 3);
+    my_swap_char(c.components, c.components + 1);
     my_swap_char(c.components + 1, c.components + 2);
+    my_swap_char(c.components + 2, c.components + 3);
     return (c.color);
 }
